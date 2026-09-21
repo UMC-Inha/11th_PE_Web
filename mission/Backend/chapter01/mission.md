@@ -2,7 +2,7 @@
 
   ERD 사진
 
-  ![사진1](week1_1.png)
+  ![사진1](images/week1_1.png)
 
   설명
 
@@ -14,7 +14,7 @@
 
   ERD 사진
 
-  ![사진2](week1_2.png)
+  ![사진2](images/week1_2.png)
 
   설명
 
@@ -32,7 +32,7 @@
 
   ERD 사진
 
-  ![사진3](week1_3.png)
+  ![사진3](images/week1_3.png)
 
   설명
 
@@ -45,7 +45,7 @@
 
   ERD 사진
 
-  ![사진4](week1_4.png)
+  ![사진4](images/week1_4.png)
 
   설명
 
@@ -57,7 +57,7 @@
 
   ERD 사진
 
-  ![사진5](week1_5.png)
+  ![사진5](images/week1_5.png)
 
   설명
 
@@ -69,7 +69,7 @@
 
   ERD 사진
 
-  ![사진6](week1_6.png)
+  ![사진6](images/week1_6.png)
 
   설명
 
@@ -81,7 +81,7 @@
 
   ERD 사진
 
-  ![사진7](week1_7.png)
+  ![사진7](images/week1_7.png)
 
   설명
 
@@ -108,7 +108,7 @@
 
   ERD 사진
 
-  ![사진8](week1_8.png)
+  ![사진8](images/week1_8.png)
 
   설명
 
@@ -129,7 +129,7 @@
 
    ERD 사진
 
-   ![사진9](week1_9.png)
+   ![사진9](images/week1_9.png)
 
    설명
 
