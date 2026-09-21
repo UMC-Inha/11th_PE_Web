@@ -70,33 +70,33 @@
     - 영역 무결성
     - 비즈니스 무결성
     
-    !스크린샷 2026-09-21 오후 3.38.02.png
+    ![image1.png](./image1.png)
     
     **JOIN**
     
     INNER JOIN : 교집합. 기준 테이블과 JOIN 테이블의 중복된 값
     
-    !스크린샷 2026-09-21 오후 3.42.49.png
+    ![image2.png](./image2.png)
     
     LEFT OUTER JOIN: 기준 테이블 + JOIN 테이블에서 중복되는 값
     
-    !스크린샷 2026-09-21 오후 3.43.04.png
+    ![image3.png](./image3.png)
     
     RIGHT OUTER JOIN: 중복되는 값 + JOIN 테이블의 값
     
-    !스크린샷 2026-09-21 오후 3.43.18.png
+    ![image4.png](./image4.png)
     
     FULL OUTER JOIN: 합집합. 기준 테이블과 JOIN 테이블의 모든 데이터( 
     
-    !스크린샷 2026-09-21 오후 3.43.37.png
+    ![image5.png](./image5.png)
     
     CROSS JOIN: 모든 경우의 수 (카디널리티 곱)
     
-    !스크린샷 2026-09-21 오후 3.44.40.png
+    ![image6.png](./image6.png)
     
     SELF JOIN : 자기자신과 자기 자신의 조인
     
-    !스크린샷 2026-09-21 오후 3.45.34.png
+    ![image7.png](./image7.png)
     
     ON: 조인 조건을 지정하는 방법 (ON A.id = B.id)
     
