@@ -113,5 +113,3 @@ export default function MovieCard({ movie, onToggleBookmark }: MovieCardProps) {
 
 `map`으로 새 배열을 만들고, 선택한 영화만 스프레드 문법(`{ ...movie }`)으로 새 객체를 만들어 교체했다.
 나머지 영화는 기존 객체를 그대로 반환하기 때문에, React가 바뀐 카드만 정확히 감지할 수 있다.
-
-```
