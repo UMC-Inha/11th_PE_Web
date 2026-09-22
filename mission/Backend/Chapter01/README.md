@@ -1,6 +1,8 @@
+# Chapter01
+
 ERD 사진
 
-![ERD](./images/UMC_week1_B_mission.png)
+![ERD](./images/mission-01.png)
 
 설명
 

@@ -1,3 +1,5 @@
+# Chapter01
+
 - TypeScript와 정적 타입 검사
     - JavaScript와 비교했을 때 TypeScript는 오류를 언제, 어떤 방식으로 확인하나요?
         
