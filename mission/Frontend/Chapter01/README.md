@@ -1,3 +1,5 @@
+# Chapter01
+
 ## 1. 구현 방법
 
 ### 회원 타입 정의
@@ -101,7 +103,7 @@ node dist/index.js
 
 회원 ID `1`, `2`, `999`를 전달해 각각의 결과를 확인했다.
 
-![1주차 Web 미션 실행 결과](./images/UMC_week1_W_mission.png)
+![1주차 Web 미션 실행 결과](./images/mission-01.png)
 
 - ID `1`: GitHub 아이디가 있는 회원
 - ID `2`: GitHub 아이디가 없는 회원
