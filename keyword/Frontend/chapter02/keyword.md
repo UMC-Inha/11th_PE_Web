@@ -11,7 +11,7 @@
         
         JSX + TypeScript = .tsx
         
-        ![image1.png](./image1.png)
+        ![image1.png](images/image1.png)
         
         React: **UI(JSX가 읽기 쉽게 작성한 UI)**를 만들고 갱신하는 라이브러리
         
@@ -79,7 +79,7 @@
             - 안정적이고 고유한 값
             - 배열 index가 key가 되면 안된다. → 순서가 바뀌거나 항목이 추가, 삭제될 시 문제가 됨
             
-            ![image2.png](./image2.png)
+            ![image2.png](images/image2.png)
             
 - props와 단방향 데이터 흐름
     - 부모와 자식 컴포넌트 사이에서 props는 어떤 역할을 하나요?
@@ -90,7 +90,7 @@
         
         props 타입으로 코드 검사 뿐 아닌 컴포넌트를 사용할 때 어떤 값이 필요한지 알려주는 역할도 한다
         
-        ![image3.png](./image3.png)
+        ![image3.png](images/image3.png)
         
         위 경우 MovieCard에 props 객체를 받으면 어떤식으로 출력할지 미리 정해두고 App()에서 값을 받아서 해당되는 속성을 꺼내서 출력되게 된다.
         
@@ -143,7 +143,7 @@
         
         state의 변경을 감지하여 컴포넌트를 리랜더링하게 되는데 이때 **state의 변경 기준이 콜스택 값**이다.
         
-        ![image4.png](./image4.png)
+        ![image4.png](images/image4.png)
         
         JavaScript는 메모리 구조를 call stack, memory heap 두 가지를 사용하게 된다. 
         
@@ -169,13 +169,13 @@
         
         다음 렌더링 때 반영 : React는 상태 업데이트를 내부 큐에 저장 후 한번에 처리하기 때문에 여러 상태의 업데이트가 겹치더라도 한번에 렌더링된다.
         
-        ![image5.png](./image5.png)
+        ![image5.png](images/image5.png)
         
-        ![image6.png](./image6.png)
+        ![image6.png](images/image6.png)
         
         예를 들어 React는 위에서 같은 counter 값은 참조하게 된다.
         
-        ![image7.png](./image7.png)
+        ![image7.png](images/image7.png)
         
         이렇게 업데이트 함수를 사용할 경우 최신 상태 값의 prev를 사용하여 게산하게 되므로 상태 변경은 두 번 모두 적용되지만 한번만 렌더링하게 된다.
         
@@ -206,7 +206,7 @@
         
         실제로 필요 없는 props를 계속 전달함.
         
-        ![image8.png](./image8.png)
+        ![image8.png](images/image8.png)
         
         **상태 끌어올리기**
         

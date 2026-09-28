@@ -2,16 +2,16 @@
     - 미션 1 결과에는 책 제목, 설명, 카테고리 이름을 포함합니다.
     
     ```jsx
-    SELECT b.title, b.description, c.name
+    SELECT b.title, b.description, c.name AS category_name
     FROM book b 
     JOIN category c ON c.category_id = b.category_id
-    WHERE c.name = "문학"
+    WHERE c.name = '문학'
     AND b.is_available = TRUE
     ORDER BY b.book_id DESC
     LIMIT 10;
     ```
     
-    ![image1.png](./image1.png)
+    ![image1.png](images/image1.png)
     
     - 미션 2. 특정 사용자가 아직 반납하지 않은 책을 반납 예정일 순으로 조회합니다.
     
@@ -24,7 +24,7 @@
     ORDER BY r.due_at ASC, r.rental_id ASC;
     ```
     
-    ![image2.png](./image2.png)
+    ![image2.png](images/image2.png)
     
 2. 미션 2 결과에는 책 제목, 대여일, 반납 예정일을 포함합니다.
     - 미션 3. 특정 책의 태그 목록과 특정 사용자의 좋아요 여부를 조회합니다.
@@ -42,6 +42,8 @@
     AND bl.user_id = ?
     WHERE b.book_id = ?
     ORDER BY t.name ASC;
+   
+![image6.png](images/image6.png)
     ```
     
     - 각 쿼리에서 기준 테이블, JOIN한 이유, WHERE 조건, 정렬·목록 기준을 설명합니다.
@@ -93,15 +95,22 @@
 3. 공통 더미 데이터에서 실행한 결과를 캡처합니다.
     - 1주차 기준 ERD 또는 자신의 ERD에서 JOIN 경로를 표시합니다.
         
-        ![image3.png](./image3.png)
+        ![image3.png](images/image3.png)
         
     - 실행 결과가 요구사항 문장과 일치하는지 한 문장으로 검증합니다.
         
         회원의 선호 음식 카테고리의 식당을 평점→리뷰수→식당 id순으로 최대 20개 조회하게 된다.
 
+제출물
+
+01_schema.sql
+![image4.png](images/image4.png)
+02_seed.sql
+![image5.png](images/image5.png)
+
 ERD 사진
 
-![image3.png](./image3.png)
+![image3.png](images/image3.png)
 
 설명
 
