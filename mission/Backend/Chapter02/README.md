@@ -76,6 +76,28 @@
         
 4. 각 쿼리에서 기준 테이블, JOIN한 이유, WHERE 조건, 정렬·목록 기준을 설명합니다.
     - 확장. 자신의 1주차 ERD에서 같은 방식으로 화면 조회 요구사항 1개와 SQL을 작성합니다.
+    - 요구사항: 특정 가게의 리뷰 목록과 작성자의 정보 조회
+    ```sql
+    SELECT 
+        s.store_name,
+        m.success_boundary,
+        m.reward,
+        m.deadline,
+        CASE 
+            WHEN mm.member_id IS NOT NULL THEN mm.status 
+            ELSE 'NONE' 
+        END AS mission_status
+    FROM store s
+    JOIN mission m 
+    ON s.store_id = m.store_id
+    LEFT JOIN member_mission mm 
+        ON m.mission_id = mm.mission_id 
+        AND mm.member_id = 2
+    WHERE s.store_id = 1;
+    ```
+
+    - 특정 가게의 미션 조회가 주목적이므로 store과 여기에 속한 mission 테이블을 연결하고, M:N 연결 테이블인 member_mission으로 사용자의 수행내역으로 연결
+    - 조회 대상인 특정 가게(1)로 범위를 좁히고, member_mission 테이블 조인 조건에 현재 로그인한 사용자(2) 조건을 함께 부여
 5. 공통 더미 데이터에서 실행한 결과를 캡처합니다.
     - 1주차 기준 ERD 또는 자신의 ERD에서 JOIN 경로를 표시합니다.
     - 실행 결과가 요구사항 문장과 일치하는지 한 문장으로 검증합니다.
