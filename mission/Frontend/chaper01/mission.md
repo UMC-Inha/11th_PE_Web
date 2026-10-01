@@ -58,4 +58,4 @@ console.log(createMemberCard(1));
 console.log(createMemberCard(2));
 console.log(createMemberCard(999));
 ```
-![image.png](image.png)
+![image.png](images/image.png)
