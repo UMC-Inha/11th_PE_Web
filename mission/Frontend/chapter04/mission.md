@@ -6,3 +6,4 @@
 ![영화검색북마크].\images\image (4).png
 ![영화목록북마크].\images\image (5).png
 ![Aplication].\images\image (6).png
+Application 패널에서 umcine-bookmark-store 저장값 확인
