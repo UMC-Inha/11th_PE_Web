@@ -5,7 +5,7 @@
         
         ### API란?
         
-        **API(Application Programming Interface)**는 서로 다른 프로그램이 데이터나 기능을 주고받을 수 있도록 정해 놓은 방법이다.
+        API(Application Programming Interface)는 서로 다른 프로그램이 데이터나 기능을 주고받을 수 있도록 정해 놓은 방법이다.
         
         예를 들어 UMCine에서 영화 정보를 표시하려면 영화 제목, 포스터, 개봉일 등의 데이터가 필요하다.
         
