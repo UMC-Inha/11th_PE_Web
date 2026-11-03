@@ -1,25 +1,86 @@
-1. API 명세
+#### 1. QueryClient 설정 (`main.tsx`)
 
-| 기능 | Method | 경로 | 요청 Body | 성공 | 실패 |
-| --- | --- | --- | --- | --- | --- |
-| 회원가입 | POST | /members | email, password, nickname | 201 | 400, 409 |
-| 평점 등록 | POST | /members/{memberId}/ratings | movieId, score, comment | 201 (result: ratingId) | 400, 404, 409 |
-| 평점 수정 | PATCH | /members/{memberId}/ratings/{ratingId} | score, comment | 200 | 400, 403, 404 |
-| 평점 삭제 | DELETE | /members/{memberId}/ratings/{ratingId} | 없음 | 204 | 403, 404 |
-1. Postman 또는 화면 요청/응답 캡처
+```tsx
+const ONE_MINUTE = 60 * 1000;
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { staleTime: ONE_MINUTE } },
+});
+```
 
-   → 실습 인증
+- 전역 `staleTime`을 1분으로 지정해 1분 안에는 같은 데이터를 다시 요청하지 않도록 했다.
 
-2. 핵심 코드 링크
-    - `SignUpRequest` (검증 애노테이션)
-    - `MemberService.signUp` (중복 확인, bcrypt 저장)
-    - `ApiResponse`, `GlobalExceptionHandler` (일관된 응답)
-    - `RatingService` (`create`, `update`, `delete`, `findOwnedRating`)
-    - `RatingController`
-3. ⚡이슈 No.1
-   **`이슈`**
-   👉 `PasswordConfig.java`에서 `org.springframework.security` 패키지를 찾을 수 없다는 `Cannot resolve symbol 'security'` 오류가 발생했다.
-   **`문제`**
-   👉 `build.gradle`에 `spring-security-crypto` 의존성을 추가했지만 IntelliJ가 Gradle 변경 사항을 반영하지 않아 라이브러리가 인식되지 않았다. 터미널의 `BUILD SUCCESSFUL`은 Gradle 태스크만 실행된 것이라 IDE 인덱스에는 영향이 없었다.
-   **`해결`**
-   👉 Gradle 탭에서 Reload All Gradle Projects를 실행해 의존성을 다시 동기화했고, 이후 빨간 줄이 사라졌다.
+#### 2. 목록 (`movie-list-page.tsx`)
+
+```tsx
+const moviesQuery = useQuery({
+  queryKey: ["movies", "list", { page }],
+  queryFn: () => getMovies({ page }),
+});
+
+const movies = moviesQuery.data?.results ?? [];
+const totalPages = moviesQuery.data?.total_pages ?? 0;
+
+{moviesQuery.isPending ? (
+  <p>영화 목록을 불러오는 중이에요.</p>
+) : moviesQuery.isError ? (
+  <p>영화 목록을 불러오지 못했어요.</p>
+) : movies.length === 0 ? (
+  <p>조건에 맞는 영화가 없어요.</p>
+) : (
+  <MovieGrid movies={movies} /* ... */ />
+)}
+```
+
+- `page`를 key에 포함해 페이지별로 캐시를 따로 저장한다.
+
+#### 3. 검색 (`search-page.tsx`)
+
+```tsx
+const normalizedQuery = query?.trim() ?? "";
+const hasQuery = normalizedQuery !== "";
+
+const searchQuery = useQuery({
+  queryKey: ["movies", "search", { query: normalizedQuery }],
+  queryFn: () => searchMovies({ query: normalizedQuery }),
+  enabled: hasQuery,
+});
+
+const movies = searchQuery.data?.results ?? [];
+```
+
+- 검색어를 key에 포함해 검색어마다 캐시를 구분한다.
+- `enabled`로 검색어가 있을 때만 요청한다. 검색어가 없을 때는 `isPending`이 참이어도 요청하지 않으므로 로딩 표시는 `isLoading`으로 판단한다.
+
+
+
+#### 4. 상세 (`movie-detail-page.tsx`)
+
+```tsx
+const movieId = Number(movieIdParam);
+const isValidMovieId = Number.isInteger(movieId) && movieId > 0;
+
+const movieDetailQuery = useQuery({
+  queryKey: ["movies", "detail", movieId],
+  queryFn: () => getMovieDetail(movieId),
+  enabled: isValidMovieId,
+  staleTime: 30 * 1000, // 미니 실습: 전역 1분 대신 30초
+});
+
+if (!isValidMovieId) { /* 올바르지 않은 영화 번호 */ }
+if (movieDetailQuery.isPending) { /* 로딩 */ }
+if (movieDetailQuery.isError) { /* 오류 */ }
+const movie = movieDetailQuery.data;
+```
+
+- 영화 ID를 key에 포함해 영화마다 캐시를 구분한다.
+- 잘못된 번호에서도 `isPending`이 참이므로, 번호 검증을 로딩보다 먼저 처리한다.
+
+!image.png
+
+#### 5. query key 정리
+
+| 화면 | query key | key에 넣은 값 |
+| --- | --- | --- |
+| 목록 | `["movies", "list", { page }]` | 페이지 번호 |
+| 검색 | `["movies", "search", { query }]` | 검색어 |
+| 상세 | `["movies", "detail", movieId]` | 영화 ID |
