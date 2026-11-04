@@ -240,19 +240,19 @@ public record ApiResponse<T>(
 
 정상적인 이메일, 닉네임, 비밀번호로 회원가입을 요청한 결과 `201 Created`가 반환되었으며, 응답에 비밀번호가 포함되지 않는 것을 확인하였다.
 
-!image.png
+![회원가입 성공](./images/mission-01.png)
 
 **MySQL - 회원가입 비밀번호 bcrypt 해시 저장 확인**
 
 회원가입 후 MySQL에서 회원 정보를 조회한 결과, 비밀번호가 평문이 아닌 bcrypt 해시 형태로 저장된 것을 확인하였다.
 
-!image.png
+![회원가입 비밀번호 bcrypt 해시 저장](./images/mission-02.png)
 
 **POST /members - 잘못된 이메일 형식 (400 Bad Request)**
 
 이메일 형식에 맞지 않는 값을 입력한 경우 `400 Bad Request`와 오류 메시지가 반환되는 것을 확인하였다.
 
-!image.png
+![잘못된 이메일 형식](./images/mission-03.png)
 
 ### 6-2. 평점 등록 및 수정 API 테스트
 
@@ -260,31 +260,31 @@ public record ApiResponse<T>(
 
 영화 ID, 별점, 후기를 전달하여 새로운 평점을 등록하고, 생성된 평점 ID가 반환되는 것을 확인하였다.
 
-!image.png
+![평점 등록 성공](./images/mission-04.png)
 
 **POST /members/1/ratings - 중복 평점 등록 (409 Conflict)**
 
 동일한 회원이 같은 영화에 다시 평점을 등록한 경우 `409 Conflict`가 반환되는 것을 확인하였다.
 
-!image.png
+![중복 평점 등록](./images/mission-05.png)
 
 **POST /members/1/ratings - 잘못된 별점 입력 (400 Bad Request)**
 
 별점에 허용 범위를 벗어난 6점을 입력한 경우 `400 Bad Request`가 반환되는 것을 확인하였다.
 
-!image.png
+![잘못된 별점 입력](./images/mission-06.png)
 
 **PATCH /members/1/ratings/4 - 평점 수정 성공 (200 OK)**
 
 기존 평점의 별점과 후기를 수정하고, 조회 API를 통해 변경된 내용이 반영된 것을 확인하였다.
 
-!image.png
+![평점 수정 성공](./images/mission-07.png)
 
 **GET /members/1/ratings - 수정된 평점 조회 (200 OK)**
 
 평점 수정 후 조회 API를 호출하여 평점 ID 4번의 별점이 5점에서 3점으로 변경되고, 후기도 정상적으로 수정된 것을 확인하였다.
 
-!image.png
+![수정된 평점 조회](./images/mission-08.png)
 
 ### 6-3. 평점 삭제 API 테스트
 
@@ -292,13 +292,13 @@ public record ApiResponse<T>(
 
 평점 삭제 요청 시 `204 No Content`가 반환되었으며, 이후 조회 결과에서 삭제된 평점이 제외된 것을 확인하였다.
 
-!image.png
+![평점 삭제 API 테스트](./images/mission-09.png)
 
 **GET /members/1/ratings - 평점 삭제 후 조회 (200 OK)**
 
 평점 삭제 후 조회 API를 호출하여 평점 ID 4번이 목록에서 제외되고, 평점 개수가 3개에서 2개로 감소한 것을 확인하였다.
 
-!image.png
+![평점 삭제 후 조회](./images/mission-10.png)
 
 ### 6-4. 평점 접근 권한 및 예외 처리 테스트
 
@@ -306,22 +306,22 @@ public record ApiResponse<T>(
 
 평점 작성자와 요청 회원 ID가 일치하지 않는 경우 `403 Forbidden`이 반환되는 것을 확인하였다.
 
-!image.png
+![평점 접근 권한 및 예외 처리 테스트](./images/mission-11.png)
 
 **DELETE /members/2/ratings/2 - 다른 회원의 평점 삭제 (403 Forbidden)**
 
 다른 회원이 작성한 평점을 삭제하려고 한 경우에도 `403 Forbidden`이 반환되는 것을 확인하였다.
 
-!image.png
+![다른 회원의 평점 삭제](./images/mission-12.png)
 
 **PATCH /members/1/ratings/99999 - 존재하지 않는 평점 수정 (404 Not Found)**
 
 존재하지 않는 평점 ID로 수정 요청을 보낸 경우 `404 Not Found`가 반환되는 것을 확인하였다.
 
-!image.png
+![존재하지 않는 평점 수정](./images/mission-13.png)
 
 **DELETE /members/1/ratings/99999 - 존재하지 않는 평점 삭제 (404 Not Found)**
 
 존재하지 않는 평점을 삭제하려고 한 경우에도 `404 Not Found`가 반환되는 것을 확인하였다.
 
-!image.png
+![존재하지 않는 평점 삭제](./images/mission-14.png)

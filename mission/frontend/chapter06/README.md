@@ -130,7 +130,7 @@ Network 패널에서 3페이지에 해당하는 TMDB API의 `page=2` 요청은 �
 
 또한 TanStack Query Devtools에서 현재 1페이지 Query는 `Fresh`, 이전에 조회한 2페이지 Query는 `Inactive` 상태로 표시되어 페이지별 캐시가 유지되는 것을 확인했다.
 
-!image.png
+![영화 목록 조회 및 캐시 재사용](./images/mission-01.png)
 
 ### **영화 검색 기능 동작 확인**
 
@@ -144,9 +144,9 @@ Network 패널에서 3페이지에 해당하는 TMDB API의 `page=2` 요청은 �
 
 상세 조회의 `staleTime`을 30초로 설정한 뒤 TanStack Query Devtools에서 상세 데이터가 처음에는 `fresh` 상태로 표시되고, 30초가 지난 후 `stale` 상태로 변경되는 것을 확인했다.
 
-!image.png
+![fresh 상태](./images/mission-02.png)
 
-!image.png
+![stale 상태](./images/mission-03.png)
 
 ### Query Key 구분 및 캐시 상태 확인
 
@@ -164,7 +164,7 @@ TanStack Query Devtools에서 영화 목록, 검색, 상세 조회의 Query가 �
 
 또한 검색어가 비어 있는 경우에는 `disabled` 상태로 표시되어 API 요청이 발생하지 않는 것도 확인했다.
 
-!image.png
+![Query Key 구분](./images/mission-04.png)
 
 ### 빌드 확인
 
