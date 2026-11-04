@@ -189,6 +189,6 @@ useEffect(() => {
 
 **상태별 화면 확인 방법**
 
-- 로딩: DevTools Network 속도를 `Slow 4G`로 바꾼다.
-- 오류: `Offline`으로 바꾼다.
-- 빈 결과: 없는 검색어를 넣거나 없는 영화 id로 들어간다.
+- 로딩: DevTools Network 속도를 `Slow 4G`로 바꾼다
+- 오류: `Offline`으로 바꾼다
+- 빈 결과: 없는 검색어를 넣거나 없는 영화 id로 들어간다
