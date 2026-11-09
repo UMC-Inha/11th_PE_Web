@@ -53,7 +53,7 @@
         }
         ```
 
-      !image.png
+      ![image1.png](image1.png)
 
     - 평점 등록 — POST /members/{memberId}/ratings
 
@@ -110,60 +110,60 @@
         }
         ```
 
-      !image.png
+      ![image2.png](image2.png)
 
-    - 평점 수정 — PATCH /members/{memberId}/ratings/{ratingId}
+      - 평점 수정 — PATCH /members/{memberId}/ratings/{ratingId}
 
-      **경로 변수**
+        **경로 변수**
 
-      | 이름 | 타입 | 의미 |
-              | --- | --- | --- |
-      | memberId | Long | 요청 회원 ID |
-      | ratingId | Long | 수정할 평점 ID |
+        | 이름 | 타입 | 의미 |
+                | --- | --- | --- |
+        | memberId | Long | 요청 회원 ID |
+        | ratingId | Long | 수정할 평점 ID |
 
-      **요청 본문**
+        **요청 본문**
 
-      | 필드 | 타입 | 필수 | 조건 |
-              | --- | --- | --- | --- |
-      | score | Integer | O | 1~5 |
-      | comment | String | X | 최대 500자 |
+        | 필드 | 타입 | 필수 | 조건 |
+                | --- | --- | --- | --- |
+        | score | Integer | O | 1~5 |
+        | comment | String | X | 최대 500자 |
 
-        ```json
-        {
-          "score": 4,
-          "comment": "다시 보니 생각이 조금 달라짐"
-        }
-        ```
+          ```json
+          {
+            "score": 4,
+            "comment": "다시 보니 생각이 조금 달라짐"
+          }
+          ```
 
-      **성공 응답 — 200 OK**
+        **성공 응답 — 200 OK**
 
-        ```json
-        {
-          "isSuccess": true,
-          "code": "COMMON200",
-          "message": "평점 수정에 성공했습니다.",
-          "result": null
-        }
-        ```
+          ```json
+          {
+            "isSuccess": true,
+            "code": "COMMON200",
+            "message": "평점 수정에 성공했습니다.",
+            "result": null
+          }
+          ```
 
-      **실패 응답**
+        **실패 응답**
 
-      | HTTP 상태 | code | 조건 / message |
-              | --- | --- | --- |
-      | 400 | COMMON4001 | 별점·후기 검증 실패, 첫 번째 필드 오류 메시지 반환 |
-      | 403 | COMMON403 | 작성자 불일치: 본인이 작성한 평점만 수정하거나 삭제할 수 있습니다. |
-      | 404 | COMMON404 | 평점 없음: 존재하지 않는 평점입니다. |
+        | HTTP 상태 | code | 조건 / message |
+                | --- | --- | --- |
+        | 400 | COMMON4001 | 별점·후기 검증 실패, 첫 번째 필드 오류 메시지 반환 |
+        | 403 | COMMON403 | 작성자 불일치: 본인이 작성한 평점만 수정하거나 삭제할 수 있습니다. |
+        | 404 | COMMON404 | 평점 없음: 존재하지 않는 평점입니다. |
 
-        ```json
-        {
-          "isSuccess": false,
-          "code": "COMMON403",
-          "message": "본인이 작성한 평점만 수정하거나 삭제할 수 있습니다.",
-          "result": null
-        }
-        ```
+          ```json
+          {
+            "isSuccess": false,
+            "code": "COMMON403",
+            "message": "본인이 작성한 평점만 수정하거나 삭제할 수 있습니다.",
+            "result": null
+          }
+          ```
 
-      !image.png
+        ![image3.png](image3.png)
 
     - 평점 삭제 — DELETE /members/{memberId}/ratings/{ratingId}
 
@@ -194,7 +194,7 @@
         }
         ```
 
-      !image.png
+      ![image4.png](image4.png)
 
 
     **회원가입**
