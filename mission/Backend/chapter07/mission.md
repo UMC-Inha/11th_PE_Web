@@ -1,0 +1,12 @@
+1. 로그인
+   !(C:\umc11th\11th_PE_Web\mission\Backend\chapter07\images\image (18).png)
+2. 정보조회
+   !(C:\umc11th\11th_PE_Web\mission\Backend\chapter07\images\image (19).png)
+3. 인증실패
+   !(C:\umc11th\11th_PE_Web\mission\Backend\chapter07\images\image (20).png)
+4. 인가실패
+   !(C:\umc11th\11th_PE_Web\mission\Backend\chapter07\images\image (21).png)
+5. 평점등록
+   !(C:\umc11th\11th_PE_Web\mission\Backend\chapter07\images\image (22).png)
+6. 평점수정
+   !(C:\umc11th\11th_PE_Web\mission\Backend\chapter07\images\image (23).png)
